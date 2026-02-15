@@ -7,6 +7,7 @@ conversation sessions with the Copilot CLI.
 
 import asyncio
 import inspect
+import logging
 import threading
 from types import TracebackType
 from typing import Any, Callable, Optional
@@ -124,8 +125,6 @@ class CopilotSession:
             await self.destroy()
         except Exception as e:
             # Log the error but don't raise - we want cleanup to always complete
-            import logging
-
             logging.warning(f"Error during CopilotSession cleanup: {e}")
         return False
 

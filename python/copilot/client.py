@@ -14,6 +14,7 @@ Example:
 
 import asyncio
 import inspect
+import logging
 import os
 import re
 import subprocess
@@ -250,8 +251,6 @@ class CopilotClient:
             await self.stop()
         except Exception as e:
             # Log the error but don't raise - we want cleanup to always complete
-            import logging
-
             logging.warning(f"Error during CopilotClient cleanup: {e}")
         return False
 
